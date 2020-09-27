@@ -4,12 +4,12 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Pokemon from "./Pokemon";
 import Pokemon_Detail from "./Pokemon_Detail";
 
-function App() {
+const App=()=> {
   return (
     <>
       <BrowserRouter>
         <Switch>
-          <div className="App mx-2 my-2">
+          <div className="container-fluid my-2">
             <Route exact path="/" component={Pokemon} />
             <Route path="/:pokemon_id" component={Pokemon_Detail} />
           </div>
