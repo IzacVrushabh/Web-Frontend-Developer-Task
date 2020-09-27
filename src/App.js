@@ -9,7 +9,7 @@ function App() {
     <>
       <BrowserRouter>
         <Switch>
-          <div className="App">
+          <div className="App mx-2 my-2">
             <Route exact path="/" component={Pokemon} />
             <Route path="/:pokemon_id" component={Pokemon_Detail} />
           </div>
