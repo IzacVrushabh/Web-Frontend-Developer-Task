@@ -3,7 +3,7 @@ import { AppBar } from "@material-ui/core";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 
-const Pokedex = (props) => {
+const Pokemon = (props) => {
   const [pokemonData, setPokemonData] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -91,4 +91,4 @@ const Pokedex = (props) => {
     </>
   );
 };
-export default Pokedex;
+export default Pokemon;
