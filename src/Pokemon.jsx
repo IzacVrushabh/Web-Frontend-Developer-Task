@@ -2,39 +2,56 @@ import React, { useEffect, useState } from "react";
 import { AppBar } from "@material-ui/core";
 import axios from "axios";
 import Loader from "react-loader-spinner";
+import FilterSort from "./FilterSort";
 
 const Pokemon = (props) => {
-  const [pokemonData, setPokemonData] = useState({});
+  const { history } = props;
+  const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const [details, setDetails] = useState({});
+  
   useEffect(() => {
     axios
-      .get(`https://pokeapi.co/api/v2/pokemon?limit=30`)
-      .then(function (response) {
-        // const { data } = response;
-        // const { results } = data;
-        const newPokemonData = {};
-        response.data.results.forEach((pokemon, index) => {
-          newPokemonData[index + 1] = {
-            id: index + 1,
-            name: pokemon.name,
-            sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-              index + 1
-            }.png`,
-          };
-        });
-        setPokemonData(newPokemonData);
-        setLoading(false);
+    .get(`https://pokeapi.co/api/v2/pokemon?limit=100`)
+    .then((response) => {
+      const { data } = response;
+      const { results } = data;
+      const newPokemonData = {};
+      
+      results.forEach((pokemon, index) => {
+        newPokemonData[index + 1] = {
+          id: index + 1,
+          name: pokemon.name,
+          url: pokemon.url,
+          sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+            index + 1
+          }.png`,
+        };
       });
-    pokedetails();
-  }, []);
+      setPokemonData(newPokemonData);
+      console.log(newPokemonData);
+      setLoading(false);
+      
+      const allPokeList = {};
+      results.forEach((ele, idx) => {
+          axios.get(`${ele.url}`).then((res) => {
+            allPokeList[idx + 1] = {
+              id: res.data.id,
+              order: res.data.order,
+              weight: res.data.weight,
+              height: res.data.height,
+              moves: res.data.moves.length,
+            };
+          })
+          .catch(err=>console.log(err));
+        });
+        setDetails(allPokeList);
+        console.log(allPokeList);
 
-  const pokedetails = () => {
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon/1/")
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  };
+        // const cnt = results.length;
+        // setCount(cnt);
+      });
+  }, []);
 
   const get_Pokemon_Details = (pokemon_id) => {
     const { id, name, sprite } = pokemonData[pokemon_id];
@@ -57,7 +74,11 @@ const Pokemon = (props) => {
                     longer.
                   </p>
                   <p className="card-text">
-                    <button type="button" className="btn btn-warning w-25">
+                    <button
+                      type="button"
+                      className="btn btn-warning w-25"
+                      onClick={() => history.push(`/${id}`)}
+                    >
                       View
                     </button>
                   </p>
@@ -81,40 +102,10 @@ const Pokemon = (props) => {
           <h3>POKEMON API</h3>
         </div>
         <div className="d-flex ">
-          <div className="col-md-4 w-50">
-            <label className="d-flex">
-              Sort by
-              <select className="form-control">
-                <option value="">Select</option>
-                <option value="lowestprice">Lowest to highest Order</option>
-                <option value="highestprice">Highest to lowest Order</option>
-                <option value="lowestheight">Lowest to highest Height</option>
-                <option value="highestHeight">Highest to lowest Height</option>
-              </select>
-            </label>
-          </div>
-
-          <div className="col-md-4 w-50 ml-3">
-            <label className="d-flex">
-              Filter Size
-              <select className="form-control">
-                <option value="">ALL</option>
-                <option value="x">Weight</option>
-                <option value="s">Types</option>
-              </select>
-            </label>
-          </div>
+          <FilterSort />
         </div>
       </AppBar>
-      {!loading ? (
-        <table className="mt-3 d-block mx-auto" style={{ width: "100vh" }}>
-          <tbody>
-            {Object.keys(pokemonData).map((pokemon_id) =>
-              get_Pokemon_Details(pokemon_id)
-            )}
-          </tbody>
-        </table>
-      ) : (
+      {loading ? (
         <Loader
           type="ThreeDots"
           color="#FFB800"
@@ -126,6 +117,14 @@ const Pokemon = (props) => {
             alignItems: "center",
           }}
         />
+      ) : (
+        <table className="mt-3 d-block mx-auto" style={{ width: "100vh" }}>
+          <tbody>
+            {Object.keys(pokemonData).map((pokemon_id) =>
+              get_Pokemon_Details(pokemon_id)
+            )}
+          </tbody>
+        </table>
       )}
     </>
   );
