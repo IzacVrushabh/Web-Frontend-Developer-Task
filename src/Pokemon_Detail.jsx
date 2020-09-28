@@ -40,22 +40,22 @@ const Pokemon_Detail = (props) => {
           {loading?<Loader
           type="ThreeDots"
           color="white"
-        />:<img
+        />:<img className="mt-4"
             style={{ width: "300px", height: "300px" }}
             src={fullImageUrl}
             alt={fullImageUrl}
           />}
           
-          <div><h4>Pokemon Details</h4></div>
+          <div className="mt-4"><h4>Pokemon Details</h4></div>
           <div>
-            {"Species: "}
-            <Link href={species.url}>{species.name.charAt(0).toUpperCase() + name.slice(1)} </Link>
+            Species:
+            <Link href={species.url} className="ml-2">{species.name.charAt(0).toUpperCase() + name.slice(1)} </Link>
           </div>
           <div>Height: {height} </div>
           <div>Weight: {weight} </div>
-          <div><h6>Types:</h6>
+          <div className="d-flex"><h6 className="mr-2">Types:</h6>
           {types.map((typeInfo) => {
-            return <div key={typeInfo.type.name}> {`${typeInfo.type.name}`}</div>;
+            return <div key={typeInfo.type.name} className="mr-2"> {`${typeInfo.type.name}`}</div>;
           })}
           </div>
          </div>

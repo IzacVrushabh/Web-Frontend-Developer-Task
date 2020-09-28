@@ -98,7 +98,7 @@ const Pokemon = (props) => {
         position="sticky"
         style={{ borderRadius: "10px", background: "#FFB800" }}
       >
-        <div className="nav_bar ml-2 my-2">
+        <div className="nav_bar my-2 d-block mx-auto">
           <h3>POKEMON API</h3>
         </div>
         <div className="d-flex ">
