@@ -9,9 +9,9 @@ const Pokemon = (props) => {
   const { history } = props;
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [details, setDetails] = useState();
+  const [details, setDetails] = useState([]);
   const allPokeList = [];
-  
+
   useEffect(() => {
     setLoading(true);
     axios.get(`https://pokeapi.co/api/v2/pokemon?limit=10`).then((response) => {
@@ -21,24 +21,22 @@ const Pokemon = (props) => {
       console.log(results);
 
       results.forEach((ele, idx) => {
-       axios
+        axios
           .get(`${ele.url}`)
           .then((res) => {
-            // console.log(res);
-            allPokeList.push({
-                id: res.data.id,
-                name: res.data.name,
-                sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                  idx + 1
-                }.png`,
-                weight: res.data.weight,
-                height: res.data.height,
-                moves: res.data.moves.length,
-            });
+            console.log(res.data);
+            setDetails(oldlist=>[...oldlist,{
+              id: res.data.id,
+              name: res.data.name,
+              sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                idx + 1
+              }.png`,
+              weight: res.data.weight,
+            }]);
           })
           .catch((err) => console.log(err));
       });
-      console.log(allPokeList);
+      // console.log(details);
 
       // const cnt = results.length;
       // setCount(cnt);
@@ -73,12 +71,11 @@ const Pokemon = (props) => {
           }}
         />
       ) : (
-        
         <table className="mt-3 d-block mx-auto" style={{ width: "100vh" }}>
           <tbody>
-            {pokemonData.map((item, idx) => {
+            {details.map((item, idx) => {
               const sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                idx + 1
+                item.id
               }.png`;
               // const { id, name, sprite } = item;
               return (
@@ -108,7 +105,7 @@ const Pokemon = (props) => {
                               <button
                                 type="button"
                                 className="btn btn-warning w-25"
-                                onClick={() => history.push(`/${idx + 1}`)}
+                                onClick={() => history.push(`/${item.id}`)}
                               >
                                 View
                               </button>
@@ -116,8 +113,8 @@ const Pokemon = (props) => {
                                 type="button"
                                 className="btn btn-warning w-25 ml-3"
                                 onClick={() => {
-                                  setPokemonData((curCard) =>
-                                    curCard.filter((x) => x.name !== item.name)
+                                  setDetails((curCard) =>
+                                    curCard.filter((x) => x.id !== item.id)
                                   );
                                 }}
                               >
