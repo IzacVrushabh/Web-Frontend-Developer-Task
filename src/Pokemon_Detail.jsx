@@ -14,12 +14,12 @@ const Pokemon_Detail = (props) => {
       setLoading(true);
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${pokemon_id}/`)
-      .then(function (response) {
+      .then((response)=>{
         const { data } = response;
         setPokemon(data);
         setLoading(false);
       })
-      .catch(function (error) {
+      .catch(err=>{
         setPokemon(false);
       });
   }, [pokemon_id]);
@@ -30,6 +30,7 @@ const Pokemon_Detail = (props) => {
     return (
       <>
         <div className="container mt-3" style={{background:"#FEC200",borderRadius:"10px",height:"90vh"}}>
+         <div className="d-block mx-auto w-25">
           <header>
           <h3 className="pt-3">
             {`${id}. `}
@@ -57,6 +58,7 @@ const Pokemon_Detail = (props) => {
             return <div key={typeInfo.type.name}> {`${typeInfo.type.name}`}</div>;
           })}
           </div>
+         </div>
         </div>
       </>
     );

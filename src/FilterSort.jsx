@@ -1,17 +1,15 @@
 import React from "react";
 
-const FilterSort = () => {
+const FilterSort = (props) => {
   return (
     <>
       <div className="col-md-4 w-50">
         <label className="d-flex">
           Sort by
-          <select className="form-control">
+          <select value={props.sort} onChange={props.sortPokemon} className="ml-2">
             <option value="">Select</option>
-            <option value="lowestprice">Lowest to highest Order</option>
-            <option value="highestprice">Highest to lowest Order</option>
-            <option value="lowestweight">Lowest to highest weight</option>
-            <option value="highestweight">Highest to lowest weight</option>
+            <option value="lowest">Lowest to highest</option>
+            <option value="highest">Highest to lowest</option>
           </select>
         </label>
       </div>
@@ -19,7 +17,7 @@ const FilterSort = () => {
       <div className="col-md-4 w-50 ml-3">
         <label className="d-flex">
         Filter
-          <select className="form-control ml-2">
+          <select value={props.filter_list} onChange={props.filterPokemon} className="ml-2">
             <option value="">ALL</option>
             <option value="height">Height</option>
             <option value="types">Types</option>
@@ -27,6 +25,7 @@ const FilterSort = () => {
           </select>
         </label>
       </div>
+      <div className="filter-result"><h3>{props.count} Pokemons</h3></div>
     </>
   );
 };
