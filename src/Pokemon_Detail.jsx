@@ -4,7 +4,7 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 
 const Pokemon_Detail = (props) => {
-  const { match, history } = props;
+  const { match } = props;
   const { params } = match;
   const { pokemon_id } = params;
   const [pokemon, setPokemon] = useState(undefined);
@@ -25,12 +25,11 @@ const Pokemon_Detail = (props) => {
   }, [pokemon_id]);
 
   const generatePokemonJSX = (pokemon) => {
-    const { name, id, species, height, weight, types, sprites } = pokemon;
+    const { name, id, species, height, weight, types} = pokemon;
     const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
-    const { front_default } = sprites;
     return (
       <>
-        <div className="container mt-3" style={{background:"#FFB800",borderRadius:"10px",height:"90vh"}}>
+        <div className="container mt-3" style={{background:"#FEC200",borderRadius:"10px",height:"90vh"}}>
           <header>
           <h3 className="pt-3">
             {`${id}. `}
@@ -49,7 +48,7 @@ const Pokemon_Detail = (props) => {
           <div><h4>Pokemon Details</h4></div>
           <div>
             {"Species: "}
-            <Link href={species.url}>{species.name} </Link>
+            <Link href={species.url}>{species.name.charAt(0).toUpperCase() + name.slice(1)} </Link>
           </div>
           <div>Height: {height} </div>
           <div>Weight: {weight} </div>
