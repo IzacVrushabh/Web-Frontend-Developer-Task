@@ -4,6 +4,8 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 import FilterSort from "./FilterSort";
 import DeleteIcon from "@material-ui/icons/Delete";
+import SearchIcon from "@material-ui/icons/Search";
+import { Toolbar,TextField } from "@material-ui/core";
 
 const base_url = "https://pokeapi.co/api/v2/pokemon?limit=";
 
@@ -91,6 +93,12 @@ const Pokemon = (props) => {
     setDetails([pokemonData.details]);
   };
 
+  const handleSearchChange = (e) => {
+    setPokemonData({
+      filter_list: e.target.value
+    });
+  };
+
   return (
     <>
       <AppBar
@@ -101,6 +109,17 @@ const Pokemon = (props) => {
         <div className="nav_bar my-2 d-block mx-auto">
           <h3>POKEMON API</h3>
         </div>
+        <Toolbar>
+          <div>
+            <SearchIcon />
+            <TextField
+              className="Search"
+              onChange={handleSearchChange}
+              label="Pokemon"
+              variant="standard"
+            />
+          </div>
+        </Toolbar>
         <div className="d-flex ">
           <FilterSort
             count={details.length}
@@ -153,10 +172,7 @@ const Pokemon = (props) => {
                               <b
                                 style={{ textTransform: "uppercase" }}
                               >{`${item.name}`}</b>
-                              , also known as Pocket Monsters in Japan, is a
-                              Japanese media franchise managed by the Pokémon
-                              Company, a company founded by Nintendo, Game
-                              Freak, and Creatures
+                              Pokemon Description
                             </p>
                             <p className="card-text">
                               <button
