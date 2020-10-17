@@ -56,6 +56,7 @@ const Pokemon = (props) => {
     });
   }, []);
 
+   //Need proper implementation
   const sortPokemon = (event) => {
     const sort = event.target.value;
     console.log(event.target.value);
@@ -80,6 +81,7 @@ const Pokemon = (props) => {
     setDetails([pokemonData.details]);
   };
 
+   //Need proper implementation
   const filterPokemon = (event) => {
     console.log(event.target.value);
     if (event.target.value === "") {
