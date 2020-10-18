@@ -5,7 +5,7 @@ import Loader from "react-loader-spinner";
 import FilterSort from "./FilterSort";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SearchIcon from "@material-ui/icons/Search";
-import { Toolbar,TextField } from "@material-ui/core";
+import { Toolbar, TextField } from "@material-ui/core";
 
 const base_url = "https://pokeapi.co/api/v2/pokemon?limit=";
 
@@ -14,7 +14,7 @@ const Pokemon = (props) => {
   const [loading, setLoading] = useState(false);
   const [details, setDetails] = useState([]);
   const [pokemonData, setPokemonData] = useState({
-    details: details,
+    details: details, // details are not field in this details object..
     filter_list: "",
     sort: "",
   });
@@ -56,10 +56,11 @@ const Pokemon = (props) => {
     });
   }, []);
 
-   //Need proper implementation
+  //Need proper implementation
   const sortPokemon = (event) => {
     const sort = event.target.value;
-    console.log(event.target.value);
+    // console.log(event.target.value);
+    // 
     setPokemonData((val) => ({
       sort: sort,
       details: val.details
@@ -81,7 +82,7 @@ const Pokemon = (props) => {
     setDetails([pokemonData.details]);
   };
 
-   //Need proper implementation
+  //Need proper implementation
   const filterPokemon = (event) => {
     console.log(event.target.value);
     if (event.target.value === "") {
@@ -97,7 +98,7 @@ const Pokemon = (props) => {
 
   const handleSearchChange = (e) => {
     setPokemonData({
-      filter_list: e.target.value
+      filter_list: e.target.value,
     });
   };
 
