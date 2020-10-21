@@ -20,6 +20,7 @@ const Pokemon = (props) => {
   });
 
   useEffect(() => {
+
     setLoading(true);
     axios.get(`${base_url}50`).then((response) => {
       const { data } = response;
@@ -48,7 +49,7 @@ const Pokemon = (props) => {
           })
           .catch((err) => console.log(err));
       });
-      // console.log(details);
+      console.log(details);
 
       // const cnt = details.length;
       // console.log(cnt);
