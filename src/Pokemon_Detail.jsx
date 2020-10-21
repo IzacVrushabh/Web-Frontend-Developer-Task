@@ -52,8 +52,8 @@ const Pokemon_Detail = (props) => {
             Species:
             <Link href={species.url} className="ml-2">{species.name.charAt(0).toUpperCase() + name.slice(1)} </Link>
           </div>
-          <div>Height: {height} </div>
-          <div>Weight: {weight} </div>
+          <div> Height: {height} </div>
+          <div> Weight: {weight} </div>
           <div className="d-flex"><h6 className="mr-2">Types:</h6>
           {types.map((typeInfo) => {
             return <div key={typeInfo.type.name} className="mr-2"> {`${typeInfo.type.name}`}</div>;

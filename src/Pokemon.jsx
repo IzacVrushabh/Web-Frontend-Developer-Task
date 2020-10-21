@@ -25,7 +25,7 @@ const Pokemon = (props) => {
       const { data } = response;
       const { results } = data;
       // setPokemonData(results);
-      // console.log(results);
+      console.log(results);
 
       results.forEach((ele, idx) => {
         axios
