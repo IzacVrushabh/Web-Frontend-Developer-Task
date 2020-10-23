@@ -124,6 +124,7 @@ const Pokemon = (props) => {
                 onChange={handleSearchChange}
                 label="Pokemon"
                 variant="standard"
+                autoComplete="off"
               />
             </div>
           </Toolbar>
