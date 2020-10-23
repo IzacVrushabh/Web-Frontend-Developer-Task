@@ -10,7 +10,7 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <>
-            <div className="container-fluid my-2">
+            <div className="container-fluid my-2 mx-1">
               <Route exact path="/" component={Pokemon} />
               <Route exact path="/:pokemon_id" component={Pokemon_Detail} />
             </div>
