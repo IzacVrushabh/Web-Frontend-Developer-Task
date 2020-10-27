@@ -85,7 +85,7 @@ const Pokemon = (props) => {
   };
 
   //Need proper implementation
-  //works on implemenrstation
+  //works on implemenstation
   const filterPokemon = (event) => {
     console.log(event.target.value);
     if (event.target.value === "") {
@@ -98,7 +98,8 @@ const Pokemon = (props) => {
     }
     setDetails([pokemonData.details]);
   };
-
+  
+  //search pokemon..
   const handleSearchChange = (e) => {
     setPokemonData({
       filter_list: e.target.value,

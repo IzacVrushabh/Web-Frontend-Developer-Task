@@ -26,6 +26,7 @@ const FilterSort = (props) => {
             <option value="types">Types</option>
             <option value="moves">Moves</option>
             <option value="weight">Weight</option>
+            <option value="power">power</option>
           </select>
         </label>
       </div>

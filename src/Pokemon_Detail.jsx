@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 const Pokemon_Detail = (props) => {
   const { pokemon_id } = useParams();
-  const [pokemon, setPokemon] = useState(undefined);
+  const [pokemon, setPokemon] = useState();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
