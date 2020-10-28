@@ -25,12 +25,10 @@ const FilterSort = (props) => {
             <option value="height">Height</option>
             <option value="types">Types</option>
             <option value="moves">Moves</option>
-            <option value="weight">Weight</option>
-            <option value="power">power</option>
           </select>
         </label>
       </div>
-      <div className="filter-result"><h3>{props.count} Pokemons</h3></div>
+      <div className="filter-result"><h3> {props.count} Pokemons</h3></div>
     </>
   );
 };
