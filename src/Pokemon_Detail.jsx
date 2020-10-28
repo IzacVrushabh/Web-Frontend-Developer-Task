@@ -9,6 +9,8 @@ const Pokemon_Detail = (props) => {
   const [pokemon, setPokemon] = useState();
   const [loading, setLoading] = useState(false);
 
+  //use graphs and charts to display pokemon details..
+
   useEffect(() => {
       setLoading(true);
     axios
