@@ -19,8 +19,6 @@ const Pokemon = (props) => {
     sort: "",
   });
 
-  //works on array..
-
   useEffect(() => {
     setLoading(true);
     axios.get(`${base_url}50`).then((response) => {
@@ -98,7 +96,7 @@ const Pokemon = (props) => {
     }
     setDetails([pokemonData.details]);
   };
-  
+
   //search pokemon..
   const handleSearchChange = (e) => {
     setPokemonData({
