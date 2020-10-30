@@ -5,6 +5,7 @@ import Pokemon from "./Pokemon";
 import Pokemon_Detail from "./Pokemon_Detail";
 
 const App = () => {
+  //implement navbar
   return (
     <>
       <BrowserRouter>
