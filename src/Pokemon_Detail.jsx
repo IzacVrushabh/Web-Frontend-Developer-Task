@@ -10,7 +10,7 @@ const Pokemon_Detail = (props) => {
   const [loading, setLoading] = useState(false);
 
   //use graphs and charts to display pokemon details..
-
+  //use redux
   useEffect(() => {
       setLoading(true);
     axios
