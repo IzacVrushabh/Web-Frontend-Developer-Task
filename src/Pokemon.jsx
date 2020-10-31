@@ -15,8 +15,8 @@ const Pokemon = (props) => {
   const [details, setDetails] = useState([]);
   const [pokemonData, setPokemonData] = useState({
     details: details, // details are not field in this details object..
-    filter_list: "",
-    sort: "",
+    filter_list: "", //check filter list
+    sort: "",  //sort pokemons...
   });
 
   useEffect(() => {
