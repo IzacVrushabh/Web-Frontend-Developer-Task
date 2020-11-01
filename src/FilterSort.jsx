@@ -8,7 +8,7 @@ const FilterSort = (props) => {
     <>
       <div className="col-md-4 w-50">
         <label className="d-flex">
-          Sort by
+          Sort by values..
           {/* //pass proper values.. */}
           <select
             value={props.sort}
