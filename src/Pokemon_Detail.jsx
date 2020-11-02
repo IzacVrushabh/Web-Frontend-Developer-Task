@@ -76,7 +76,7 @@ const Pokemon_Detail = (props) => {
               {types.map((typeInfo) => {
                 return (
                   <div key={typeInfo.type.name} className="mr-2">
-                    {" "}
+                    
                     {`${typeInfo.type.name}`}
                   </div>
                 );
