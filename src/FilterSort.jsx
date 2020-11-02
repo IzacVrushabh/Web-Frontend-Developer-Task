@@ -6,25 +6,29 @@ const FilterSort = (props) => {
   //watch some videos...
   return (
     <>
-      <div className="col-md-4 w-50">
-        <label className="d-flex">
-          Sort by values..
-          {/* //pass proper values.. */}
-          <select
-            value={props.sort}
-            onChange={props.sortPokemon}
-            className="ml-2"
-          >
-            <option value="">Select</option>
-            <option value="lowest">Lowest to highest</option>
-            <option value="highest">Highest to lowest</option>
-          </select>
-        </label>
-      </div>
+      <section>
+        <div className="col-md-4 w-50">
+          <label className="d-flex">
+            Sort by values..
+            {/* //pass proper values.. */}
+            <select
+              value={props.sort}
+              onChange={props.sortPokemon}
+              className="ml-2"
+            >
+              {/* empty value */}
+              <option value="">Select</option>
+              <option value="lowest">Lowest to highest</option>
+              <option value="highest">Highest to lowest</option>
+            </select>
+          </label>
+        </div>
+      </section>
 
       <div className="col-md-4 w-50 ml-3">
         <label className="d-flex">
           Filter
+          {/* check values  */}
           <select
             value={props.filter_list}
             onChange={props.filterPokemon}
