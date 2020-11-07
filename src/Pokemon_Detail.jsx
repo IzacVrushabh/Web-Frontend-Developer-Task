@@ -11,6 +11,7 @@ const Pokemon_Detail = (props) => {
 
   //use graphs and charts to display pokemon details..
   //use redux
+  //work on react+redux
   useEffect(() => {
     setLoading(true);
     //use different api...
