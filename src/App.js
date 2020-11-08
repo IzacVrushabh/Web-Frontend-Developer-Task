@@ -6,6 +6,7 @@ import Pokemon_Detail from "./Pokemon_Detail";
 
 const App = () => {
   //implement navbar
+  //implement Login/logout system using passportjs
   return (
     <>
       <BrowserRouter>
