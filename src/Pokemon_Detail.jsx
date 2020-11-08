@@ -32,6 +32,13 @@ const Pokemon_Detail = (props) => {
       });
   }, [pokemon_id]);
 
+  const updatePokeList=()=>{
+    //update logic..
+  }
+  const deletePokeList=()=>{
+    //update logic..
+  }
+
   const generatePokemonJSX = (pokemon) => {
     const { name, id, species, height, weight, types } = pokemon;
     const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;

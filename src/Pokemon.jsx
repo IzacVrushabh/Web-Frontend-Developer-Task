@@ -8,6 +8,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import { Toolbar, TextField } from "@material-ui/core";
 //use ant-design
 //use UI design theme
+//use lazy loading...
+
 
 const base_url = "https://pokeapi.co/api/v2/pokemon?limit=";
 
