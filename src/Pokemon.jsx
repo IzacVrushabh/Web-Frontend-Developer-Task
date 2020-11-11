@@ -220,6 +220,7 @@ const Pokemon = (props) => {
             </tbody>
           </table>
         )}
+        <footer>This is footer</footer>
       </div>
     </>
   );
