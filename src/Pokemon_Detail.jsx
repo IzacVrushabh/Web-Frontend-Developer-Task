@@ -35,6 +35,9 @@ const Pokemon_Detail = (props) => {
   const updatePokeList=()=>{
     //update logic..
   }
+  const changePokeList=()=>{
+    //swap logic..
+  }
   const deletePokeList=()=>{
     //update logic..
   }
