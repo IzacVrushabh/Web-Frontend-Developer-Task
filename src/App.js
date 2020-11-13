@@ -8,7 +8,8 @@ const App = () => {
   //implement navbar
   //implement Login/logout system using passportjs
   //add some additional logic..
-  //need authentication..
+  //need authentication..passport js
+  //responsive UI
   return (
     <>
       <BrowserRouter>
