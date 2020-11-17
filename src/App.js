@@ -16,7 +16,7 @@ const App = () => {
         <Switch>
           <>
             <div className="container-fluid my-2 mx-1">
-            {/* add other routes  */}
+              {/* add other routes  */}
               <Route exact path="/" component={Pokemon} />
               <Route exact path="/about" component={Pokemon} />
               <Route exact path="/pokemons" component={Pokemon} />
@@ -25,7 +25,6 @@ const App = () => {
           </>
         </Switch>
       </BrowserRouter>
-     
     </>
   );
 };
