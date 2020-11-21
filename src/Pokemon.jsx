@@ -61,30 +61,30 @@ const Pokemon = (props) => {
   }, []);
 
   //Need proper implementation
-  const sortPokemon = (event) => {
-    const sort = event.target.value;
-    // console.log(event.target.value);
-    //
-    setPokemonData((val) => ({
-      sort: sort,
-      details: val.details
-        .slice()
-        .sort((a, b) =>
-          sort === "lowest"
-            ? a.weight > b.weight
-              ? 1
-              : -1
-            : sort === "highest"
-            ? a.weight < b.weight
-              ? 1
-              : -1
-            : a.id < b.id
-            ? 1
-            : -1
-        ),
-    }));
-    setDetails([pokemonData.details]);
-  };
+  // const sortPokemon = (event) => {
+  //   const sort = event.target.value;
+  //   // console.log(event.target.value);
+  //   //
+  //   setPokemonData((val) => ({
+  //     sort: sort,
+  //     details: val.details
+  //       .slice()
+  //       .sort((a, b) =>
+  //         sort === "lowest"
+  //           ? a.weight > b.weight
+  //             ? 1
+  //             : -1
+  //           : sort === "highest"
+  //           ? a.weight < b.weight
+  //             ? 1
+  //             : -1
+  //           : a.id < b.id
+  //           ? 1
+  //           : -1
+  //       ),
+  //   }));
+  //   setDetails([pokemonData.details]);
+  // };
 
   //Need proper implementation
   //works on implemenstation
