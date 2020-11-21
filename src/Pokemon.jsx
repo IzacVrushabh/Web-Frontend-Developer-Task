@@ -26,6 +26,7 @@ const Pokemon = (props) => {
 
   useEffect(() => {
     setLoading(true);
+    //nested axios request..
     axios.get(`${base_url}50`).then((response) => {
       const { data } = response;
       const { results } = data;
@@ -57,6 +58,7 @@ const Pokemon = (props) => {
 
       const cnt = details.length;
       console.log(cnt);
+      //check for data length..
       setLoading(false);
     });
   }, []);

@@ -32,6 +32,8 @@ const Pokemon_Detail = (props) => {
       });
   }, [pokemon_id]);
 
+  //add some reactjs charts...
+
   const updatePokeList=()=>{
     //update logic..
     // update poke details..
