@@ -21,6 +21,7 @@ const App = () => {
               <Route exact path="/about" component={Pokemon} />
               <Route exact path="/pokemons" component={Pokemon} />
               <Route exact path="/:pokemon_id" component={Pokemon_Detail} />
+              {/* add error page */}
             </div>
           </>
         </Switch>
