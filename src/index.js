@@ -7,5 +7,6 @@ import App from "./App";
 //backend implementation with apis
 //use store from redux here
 // add api folder
+//initialise redux with redux tool
 
 ReactDOM.render(<App />, document.getElementById("root"));
