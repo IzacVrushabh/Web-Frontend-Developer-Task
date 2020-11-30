@@ -10,6 +10,7 @@ const App = () => {
   //add some additional logic..
   //need authentication..passport js
   //responsive UI
+  //add React-bootstrap
   return (
     <>
       <BrowserRouter>

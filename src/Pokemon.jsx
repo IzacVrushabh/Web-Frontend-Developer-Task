@@ -62,7 +62,7 @@ const Pokemon = (props) => {
       setLoading(false);
     });
   }, []);
-
+//do some filtering
   // Need proper implementation
   const sortPokemon = (event) => {
     const sort = event.target.value;
