@@ -46,6 +46,25 @@ const FilterSort = (props) => {
       <div className="filter-result">
         <h3> {props.count} Pokemons</h3>
       </div>
+      <div className="col-md-4 w-50 ml-3">
+        <label className="d-flex">
+          Category
+          {/* check values  */}
+          <select
+            value={props.filter_list}
+            onChange={props.filterPokemon}
+            className="ml-2"
+          >
+            <option value="">ALL</option>
+            <option value="Name">Name</option>
+            <option value="Order">Order</option>
+            <option value="Power">Power</option>
+          </select>
+        </label>
+      </div>
+      <div className="filter-result">
+        <h3> {props.count} Pokemons</h3>
+      </div>
     </>
   );
 };
