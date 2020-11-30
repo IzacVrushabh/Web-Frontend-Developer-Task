@@ -26,7 +26,7 @@ const FilterSort = (props) => {
           </label>
         </div>
       </section>
-
+  {/* include all option */}
       <div className="col-md-4 w-50 ml-3">
         <label className="d-flex">
           Filter

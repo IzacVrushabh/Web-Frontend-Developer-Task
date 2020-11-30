@@ -11,6 +11,7 @@ const App = () => {
   //need authentication..passport js
   //responsive UI
   //add React-bootstrap
+  //stripe method
   return (
     <>
       <BrowserRouter>
